@@ -39,6 +39,7 @@ public class HomeWorkGame {
                 System.out.println("Победил человек");
                 break;
             }
+            checkBlockUser(DOT_X);
             if (isMapFull()) {
                 System.out.println("Ничья");
                 break;
@@ -119,11 +120,9 @@ public class HomeWorkGame {
     private boolean isWin(char symb) {
         for (int i = 0; i < SIZE; i++) {
             if (checkHorizontalLine(i, symb) || checkVerticalLine(i, symb)
-                    || checkHorizontalDiagonalLine(i, symb) || checkVerticalDiagonalLine(i, symb)) {
+                    || checkDiagonalLine(symb)) {
                 return true;
             }
-            checkRevertHorizontalLine(i, symb);
-            checkRevertVerticalLine(i, symb);
         }
 
         return false;
@@ -155,24 +154,59 @@ public class HomeWorkGame {
         return false;
     }
 
-    private void checkRevertHorizontalLine(int indexOfLine, char symb) {
-        int countOfSymbol = 0;
+    private void checkBlockUser(char symb) {
+        int countOfSymbolHorizontal = 0;
+        int countOfSymbolVertical = 0;
+        int countOfSymbolDiagonalLine = 0;
 
-        if (indexOfLine >= 0 && indexOfLine < SIZE) {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+               if (gameMap[i][j] == symb) {
+                   countOfSymbolHorizontal++;
+               }
 
-            for (int i = SIZE - 1; i >= 0; i--) {
-                if (gameMap[indexOfLine][i] == symb) {
-                    countOfSymbol++;
-                } else {
-                    if (countOfSymbol > 1 && gameMap[i][indexOfLine] == DOT_EMPTY) {
-                        needToBlock = true;
-                        xForBlock = i;
-                        yForBlock = indexOfLine;
-                    }
-                    countOfSymbol = 0;
-                }
+               if (gameMap[j][i] == symb) {
+                   countOfSymbolVertical++;
+               }
+
+               if (j == i && gameMap[j][i] == symb) {
+                   countOfSymbolDiagonalLine++;
+               }
             }
 
+            if (countOfSymbolHorizontal > 1) {
+                for (int j = 0; j < SIZE; j++) {
+                    if (gameMap[i][j] == DOT_EMPTY) {
+                        needToBlock = true;
+                        xForBlock = j;
+                        yForBlock = i;
+                        break;
+                    }
+                }
+                break;
+            } else if (countOfSymbolVertical > 1) {
+                for (int j = 0; j < SIZE; j++) {
+                    if (gameMap[j][i] == DOT_EMPTY) {
+                        needToBlock = true;
+                        xForBlock = i;
+                        yForBlock = j;
+                        break;
+                    }
+                }
+                break;
+            }
+            countOfSymbolHorizontal = 0;
+            countOfSymbolVertical = 0;
+        }
+        if (countOfSymbolDiagonalLine > 1) {
+            for (int j = 0; j < SIZE; j++) {
+                if (gameMap[j][j] == DOT_EMPTY) {
+                    needToBlock = true;
+                    xForBlock = j;
+                    yForBlock = j;
+                    break;
+                }
+            }
         }
     }
 
@@ -201,113 +235,21 @@ public class HomeWorkGame {
         return false;
     }
 
-    private void checkRevertVerticalLine(int indexOfLine, char symb) {
+
+
+    private boolean checkDiagonalLine(char symb) {
         int countOfSymbol = 0;
-
-        if (indexOfLine >= 0 && indexOfLine < SIZE) {
-
-            for (int i = SIZE - 1; i >= 0; i--) {
-                if (gameMap[i][indexOfLine] == symb) {
-                    countOfSymbol++;
-                } else {
-                    if (countOfSymbol > 1 && gameMap[i][indexOfLine] == DOT_EMPTY) {
-                        needToBlock = true;
-                        xForBlock = indexOfLine;
-                        yForBlock = i;
-                    }
-                    countOfSymbol = 0;
-                }
-            }
-
-        }
-    }
-
-    private boolean checkVerticalDiagonalLine(int indexOfLineVertical, char symb) {
-        int countOfSymbol = 0;
-
-        if (indexOfLineVertical >= 0 && indexOfLineVertical < SIZE) {
 
             for (int i = 0; i < SIZE; i++) {
-                if ((indexOfLineVertical + i) < SIZE && gameMap[indexOfLineVertical + i][i] == symb) {
+                if (gameMap[i][i] == symb) {
                     countOfSymbol++;
                     if (countOfSymbol == DOTS_TO_WIN) {
                         return true;
                     }
                 } else {
-                    if ((indexOfLineVertical + i) < SIZE && countOfSymbol > 1 && gameMap[indexOfLineVertical + i][i] == DOT_EMPTY) {
-                        needToBlock = true;
-                        xForBlock = i;
-                        yForBlock = indexOfLineVertical + i;
-                    }
                     countOfSymbol = 0;
                 }
             }
-            countOfSymbol = 0;
-            int j = 0;
-
-            for (int i = indexOfLineVertical; i >= 0; i--) {
-                    if (gameMap[i][j] == symb) {
-                        countOfSymbol++;
-                        j++;
-                        if (countOfSymbol == DOTS_TO_WIN) {
-                            return true;
-                        }
-                    } else {
-                        if (countOfSymbol > 1 && gameMap[i][j] == DOT_EMPTY) {
-                            needToBlock = true;
-                            xForBlock = j;
-                            yForBlock = i;
-                        }
-                        countOfSymbol = 0;
-                    }
-                }
-
-            }
-
-        return false;
-    }
-
-    private boolean checkHorizontalDiagonalLine(int indexOfLineHorizont, char symb) {
-        int countOfSymbol = 0;
-
-        if (indexOfLineHorizont >= 0 && indexOfLineHorizont < SIZE) {
-
-            for (int i = 0; i < SIZE; i++) {
-                if ((indexOfLineHorizont + i) < SIZE && gameMap[i][indexOfLineHorizont + i] == symb) {
-                    countOfSymbol++;
-                    if (countOfSymbol == DOTS_TO_WIN) {
-                        return true;
-                    }
-                } else {
-                    if ((indexOfLineHorizont + i) < SIZE && countOfSymbol > 1 && gameMap[i][indexOfLineHorizont + i] == DOT_EMPTY) {
-                        needToBlock = true;
-                        xForBlock = indexOfLineHorizont + i;
-                        yForBlock = i;
-                    }
-                    countOfSymbol = 0;
-                }
-            }
-
-            countOfSymbol = 0;
-
-            int j = 0;
-            for (int i = indexOfLineHorizont; i >= 0; i--) {
-                    if (gameMap[j][i] == symb) {
-                        countOfSymbol++;
-                        if (countOfSymbol == DOTS_TO_WIN) {
-                            return true;
-                        }
-                    } else {
-                        if (countOfSymbol > 2 && gameMap[j][i] == DOT_EMPTY) {
-                            needToBlock = true;
-                            xForBlock = i;
-                            yForBlock = j;
-                        }
-                        countOfSymbol = 0;
-                    }
-                j++;
-            }
-        }
         return false;
     }
 }
