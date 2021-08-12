@@ -1,39 +1,38 @@
+import fruit.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Box <T extends Fruit> {
-    private List<T> box;
+    private List<T> fruitsBox;
     private float weight;
 
     public Box(){
-        box = new ArrayList<T>();
+        fruitsBox = new ArrayList<T>();
         weight = 0;
     }
 
     public void abbFruit(T fruit) {
-        box.add(fruit);
+        fruitsBox.add(fruit);
         countWeight();
     }
 
-    public void removeFruit(T fruit) {
-        box.remove(fruit);
-        countWeight();
+    public void removeFruit() {
+        if (fruitsBox.size() > 0) {
+            fruitsBox.remove(fruitsBox.size() - 1);
+            countWeight();
+        }
     }
 
     public void abbFruit(List<T> fruits) {
-        box.addAll(fruits);
+        this.fruitsBox.addAll(fruits);
         countWeight();
     }
 
     private void countWeight() {
-        if (box.isEmpty()) {
+        if (fruitsBox.isEmpty()) {
             weight = 0;
         } else {
-            if (box.get(0) instanceof Apple) {
-                weight = box.size() * 1.0f;
-            } else if (box.get(0) instanceof Orange) {
-                weight = box.size() * 1.5f;
-            }
+            weight = fruitsBox.size() * fruitsBox.get(0).getWeight();
         }
     }
 
@@ -46,10 +45,10 @@ public class Box <T extends Fruit> {
     }
 
     public void addBoxFromBox(Box anotherBox) {
-        if (!anotherBox.getBox().isEmpty() &&
-                !box.isEmpty() &&
-                box.get(0).getClass().equals(anotherBox.getBox().get(0).getClass())) {
-            abbFruit(anotherBox.getBox());
+        if (!anotherBox.getFruitsBox().isEmpty() &&
+                !fruitsBox.isEmpty() &&
+                fruitsBox.get(0).getClass().equals(anotherBox.getFruitsBox().get(0).getClass())) {
+            abbFruit(anotherBox.getFruitsBox());
             anotherBox.clearBox();
         }
     }
@@ -59,12 +58,12 @@ public class Box <T extends Fruit> {
         return weight;
     }
 
-    public List<T> getBox() {
-        return box;
+    public List<T> getFruitsBox() {
+        return fruitsBox;
     }
 
     public void clearBox() {
-        box.clear();
+        fruitsBox.clear();
         weight = 0;
     }
 }

@@ -1,3 +1,5 @@
+import fruit.*;
+
 public class HomeTaskMain {
     public static void main(String[] args) {
         // Task 1 solution
@@ -38,7 +40,7 @@ public class HomeTaskMain {
         orangeBox1.addBoxFromBox(orangeBox2);
 
         System.out.println(orangeBox1.compare(orangeBox2));
-        appleBox2.removeFruit(appleBox2.getBox().get(0));
+        appleBox2.removeFruit();
     }
 
     public static <T> void swapArraysItems(T[] array, int firstIndex, int secondIndex) throws ArrayIndexOutOfBoundsException {
