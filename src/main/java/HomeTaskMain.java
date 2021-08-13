@@ -36,7 +36,7 @@ public class HomeTaskMain {
         System.out.println(appleBox1.getWeight());
         System.out.println(appleBox2.getWeight());
         System.out.println(orangeBox1.compare(appleBox1));
-        orangeBox1.addBoxFromBox(appleBox1);
+        //orangeBox1.addBoxFromBox(appleBox1); // - check can't put another Fruit
         orangeBox1.addBoxFromBox(orangeBox2);
 
         System.out.println(orangeBox1.compare(orangeBox2));

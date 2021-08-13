@@ -44,13 +44,9 @@ public class Box <T extends Fruit> {
         return  isEqualsWeight;
     }
 
-    public void addBoxFromBox(Box anotherBox) {
-        if (!anotherBox.getFruitsBox().isEmpty() &&
-                !fruitsBox.isEmpty() &&
-                fruitsBox.get(0).getClass().equals(anotherBox.getFruitsBox().get(0).getClass())) {
-            abbFruit(anotherBox.getFruitsBox());
-            anotherBox.clearBox();
-        }
+    public void addBoxFromBox(Box<? extends T> anotherBox) {
+         abbFruit((List<T>) anotherBox.getFruitsBox());
+         anotherBox.clearBox();
     }
 
     public float getWeight() {
