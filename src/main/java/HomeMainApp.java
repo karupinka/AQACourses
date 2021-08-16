@@ -3,7 +3,7 @@ import sun.jvm.hotspot.debugger.NoSuchSymbolException;
 public class HomeMainApp {
 
     public static void main(String[] args) {
-        String array1[][] = {{"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}};
+        String array1[][] = {{"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3"}, {"1", "2", "3", "4"}};
         String array2[][] = {{"1", "2", "Test", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}};
         String array3[][] = {{"1", "4"}, {"1", "2"}};;
 
@@ -29,8 +29,14 @@ public class HomeMainApp {
     }
 
     public static void checkSizeArray(String[][] array) throws MyArraySizeException {
-        if (!(array.length == 4 && array[0].length == 4)) {
-            throw new MyArraySizeException("Массив размером 4х4");
+        if ((array.length == 4)) {
+            for (int i = 0; i < array.length; i++) {
+                if(array[i].length != 4) {
+                    throw new MyArraySizeException("Массив размером не 4х4");
+                }
+            }
+        } else {
+            throw new MyArraySizeException("Массив размером не 4х4");
         }
     }
 
