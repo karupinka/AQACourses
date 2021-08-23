@@ -18,6 +18,7 @@ public class HomeMainApp {
         // Task 2 solution
         Phonebook phonebook = new Phonebook();
         phonebook.add("Ivanov", "+79817890000");
+        phonebook.add("Ivanov", "+79817890000");
         phonebook.add("Ivanov", "+79817890001");
         phonebook.add("Petrov", "+79817890056");
         phonebook.add("Sidorov", "+79817890066");

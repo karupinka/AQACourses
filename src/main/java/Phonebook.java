@@ -1,36 +1,39 @@
+import com.sun.javafx.binding.StringFormatter;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Phonebook {
-    Map<Integer, String> phoneIdMap;
-    Map<Integer, String> idSecondNameMap;
+    Map<Integer, ArrayList<String>> phonebookMap;
 
     public Phonebook() {
-        phoneIdMap = new HashMap<>();
-        idSecondNameMap = new HashMap<>();
+        phonebookMap = new HashMap<>();
     }
 
     public void add(String secondName, String phoneNumber) {
-        Integer id = phoneIdMap.size() + 1;
-        phoneIdMap.put(id, phoneNumber);
-        idSecondNameMap.put(id, secondName);
+        Integer id = phonebookMap.size() + 1;
+        ArrayList<String> arrayListPhone = new ArrayList<>();
+        arrayListPhone.add(secondName);
+        arrayListPhone.add(phoneNumber);
+        if (!phonebookMap.containsValue(arrayListPhone)) {
+            phonebookMap.put(id, arrayListPhone);
+        }
     }
 
-    public ArrayList<String> get(String secondName) {
-        ArrayList<String> phones = new ArrayList<>();
-        ArrayList<Integer> ids = new ArrayList<>();
-        if (idSecondNameMap.containsValue(secondName)) {
-            for (Map.Entry<Integer, String> map : idSecondNameMap.entrySet()) {
-                if (map.getValue() == secondName) {
-                    ids.add(map.getKey());
+    public String get(String secondName) {
+        List<String> phones = new ArrayList<>();
+
+        for (Map.Entry<Integer, ArrayList<String>> map: phonebookMap.entrySet()) {
+            if (map.getValue().size() == 2) {
+                if (map.getValue().get(0) == secondName) {
+                        phones.add(map.getValue().get(1));
                 }
             }
-
-            for (Integer id : ids) {
-                phones.add(phoneIdMap.get(id));
-            }
         }
-        return phones;
+
+        return "Count of people with number: " + phones.size()
+                + "\n" + phones.toString();
     }
 }
