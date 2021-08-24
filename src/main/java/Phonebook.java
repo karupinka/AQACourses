@@ -6,34 +6,28 @@ import java.util.List;
 import java.util.Map;
 
 public class Phonebook {
-    Map<Integer, ArrayList<String>> phonebookMap;
+    Map<String, ArrayList<String>> phonebookMap;
 
     public Phonebook() {
         phonebookMap = new HashMap<>();
     }
 
     public void add(String secondName, String phoneNumber) {
-        Integer id = phonebookMap.size() + 1;
-        ArrayList<String> arrayListPhone = new ArrayList<>();
-        arrayListPhone.add(secondName);
-        arrayListPhone.add(phoneNumber);
-        if (!phonebookMap.containsValue(arrayListPhone)) {
-            phonebookMap.put(id, arrayListPhone);
+        if (!phonebookMap.containsKey(secondName)) {
+            ArrayList<String> phoneList = new ArrayList<String>();
+            phoneList.add(phoneNumber);
+            phonebookMap.put(secondName, phoneList);
+        } else {
+            if (!phonebookMap.get(secondName).contains(phoneNumber)) {
+                phonebookMap.get(secondName).add(phoneNumber);
+            }
         }
     }
 
     public String get(String secondName) {
-        List<String> phones = new ArrayList<>();
-
-        for (Map.Entry<Integer, ArrayList<String>> map: phonebookMap.entrySet()) {
-            if (map.getValue().size() == 2) {
-                if (map.getValue().get(0) == secondName) {
-                        phones.add(map.getValue().get(1));
-                }
-            }
-        }
-
-        return "Count of people with number: " + phones.size()
-                + "\n" + phones.toString();
+        int countOfSize = phonebookMap.containsKey(secondName) ? phonebookMap.get(secondName).size() : 0;
+        String phoneList = phonebookMap.get(secondName) == null ? "[]" : phonebookMap.get(secondName).toString();
+        return "Count of people with number: " + countOfSize
+                + "\n" + phoneList;
     }
 }
