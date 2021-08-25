@@ -1,0 +1,245 @@
+{
+  "id": "55da79b7-110f-4acf-9c0d-4e236900374e",
+  "version": "2.0",
+  "name": "SecondTask",
+  "url": "https://www.aviasales.ru/",
+  "tests": [{
+    "id": "24f3c576-2005-4312-b753-47ce1f0f401a",
+    "name": "testMaximumNumberOfAdultsPassengers",
+    "commands": [{
+      "id": "bd767f88-2269-4c26-9227-1cd1e5b2a64c",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.aviasales.ru/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "63e6e653-82e2-48fd-878b-4174fff8509a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.additional-fields",
+      "targets": [
+        ["css=.additional-fields", "css:finder"],
+        ["xpath=//div[4]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1966047e-2828-487a-8ad6-d327a9e9a715",
+      "comment": "",
+      "command": "click",
+      "target": "css=.additional-fields__passenger-row:nth-child(1) .\\--increment path",
+      "targets": [
+        ["css=.additional-fields__passenger-row:nth-child(1) .\\--increment path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "2eb89b1c-ed73-446b-975d-7b1f0d27f634",
+      "comment": "",
+      "command": "click",
+      "target": "css=.additional-fields__passenger-row:nth-child(1) .\\--increment path",
+      "targets": [
+        ["css=.additional-fields__passenger-row:nth-child(1) .\\--increment path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3747ac6-0ca5-48db-a750-bb6babf371e4",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.additional-fields__passenger-row:nth-child(1) .\\--increment path",
+      "targets": [
+        ["css=.additional-fields__passenger-row:nth-child(1) .\\--increment path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7d397c1-0f7d-46fb-b2d5-9ac419083d3b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.additional-fields__passenger-row:nth-child(1) .\\--increment path",
+      "targets": [
+        ["css=.additional-fields__passenger-row:nth-child(1) .\\--increment path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba4bc791-3e4f-442b-bb02-8b0997d87c3c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.additional-fields__passenger-row:nth-child(1) .\\--increment path",
+      "targets": [
+        ["css=.additional-fields__passenger-row:nth-child(1) .\\--increment path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "5582c792-7d46-4747-8ce7-52be777240f1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.additional-fields__passenger-row:nth-child(1) .\\--increment path",
+      "targets": [
+        ["css=.additional-fields__passenger-row:nth-child(1) .\\--increment path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc694050-f30a-43f5-a513-be4151a1b33a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.additional-fields__passenger-row:nth-child(1) .\\--increment path",
+      "targets": [
+        ["css=.additional-fields__passenger-row:nth-child(1) .\\--increment path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "1117e71a-3762-4b08-8b21-40565ccf87de",
+      "comment": "",
+      "command": "click",
+      "target": "css=.additional-fields__passenger-row:nth-child(1) .\\--increment path",
+      "targets": [
+        ["css=.additional-fields__passenger-row:nth-child(1) .\\--increment path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "5489133c-5972-4fab-a3d9-05186fc75bca",
+      "comment": "",
+      "command": "click",
+      "target": "css=.additional-fields__passenger-row:nth-child(1) .\\--increment path",
+      "targets": [
+        ["css=.additional-fields__passenger-row:nth-child(1) .\\--increment path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "e8a09e73-cc9e-4e24-bb48-3e91158d2379",
+      "comment": "",
+      "command": "click",
+      "target": "css=.additional-fields__passenger-row:nth-child(1) .\\--increment path",
+      "targets": [
+        ["css=.additional-fields__passenger-row:nth-child(1) .\\--increment path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "189dcbce-127c-4f51-9439-ce4603450937",
+      "comment": "",
+      "command": "click",
+      "target": "css=.additional-fields__passenger-row:nth-child(1) .\\--increment path",
+      "targets": [
+        ["css=.additional-fields__passenger-row:nth-child(1) .\\--increment path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "9fcf28a7-f4a0-47a6-bb24-f97e34982bd5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.additional-fields__passenger-row:nth-child(1) .\\--increment path",
+      "targets": [
+        ["css=.additional-fields__passenger-row:nth-child(1) .\\--increment path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "86ba4290-d004-4274-9f92-612331162917",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.additional-fields__passenger-row:nth-child(1) .additional-fields__passenger-value",
+      "targets": [
+        ["css=.additional-fields__passenger-row:nth-child(1) .additional-fields__passenger-value", "css:finder"],
+        ["xpath=//div/div/div[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'9')]", "xpath:innerText"]
+      ],
+      "value": "9"
+    }]
+  }, {
+    "id": "157089b6-5a66-46e9-b9ae-2ed56debe230",
+    "name": "testCheckAllSpecialOfferParameters",
+    "commands": [{
+      "id": "6f2cd993-9bb9-4fb5-9bd2-2f04ee1c08ef",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.aviasales.ru/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "92d09701-eadb-45c2-b881-c49de926b5ce",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x812",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4243a75f-b42e-4c8f-a573-c43e111184cc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.page-header__form-set",
+      "targets": [
+        ["css=.page-header__form-set", "css:finder"],
+        ["xpath=//body/div/div/div/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1a978280-8ba8-47b5-abaa-03062cba52c5",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.page-header__tabs .\\--insurance > .form-tabs__link",
+      "targets": [
+        ["css=.page-header__tabs .\\--insurance > .form-tabs__link", "css:finder"],
+        ["xpath=(//a[contains(text(),'Страховка')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, 'https://cherehapa.ru/?marker=CPA&partnerId=9243')])[2]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e513bb10-fd84-4027-a33a-c873a95af02d",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,819)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3a0ef257-459a-418d-9a70-798c6bbaab2d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.main-offers__all-offers",
+      "targets": [
+        ["css=.main-offers__all-offers", "css:finder"],
+        ["xpath=//section[@id='main-special-offers']/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/offers')])[5]", "xpath:href"],
+        ["xpath=//section[2]/div/div[4]/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win8889",
+      "windowTimeout": 2000
+    }, {
+      "id": "e791996d-e447-4631-92ff-9f620da6b8b9",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win8889}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "db3d39c7-a155-479f-97fd-90697c06d2c5",
+      "comment": "",
+      "command": "assertSelectedValue",
+      "target": "name=offers_filter_origin",
+      "targets": [],
+      "value": "all"
+    }, {
+      "id": "e0d566ea-a5d9-4b03-a042-8fe382981f9d",
+      "comment": "",
+      "command": "assertSelectedValue",
+      "target": "name=offers_filter_destination",
+      "targets": [
+        ["name=offers_filter_destination", "name"],
+        ["css=.offer-index-filters__item:nth-child(2) > select", "css:finder"],
+        ["xpath=//select[@name='offers_filter_destination']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": "all"
+    }]
+  }],
+  "suites": [{
+    "id": "740c44db-33e0-4a26-87de-b5e10ae6b230",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://www.aviasales.ru/"],
+  "plugins": []
+}
